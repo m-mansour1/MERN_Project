@@ -50,3 +50,6 @@ const Students = ()=>{
         </div>
     )
 }
+
+
+export default Students;
