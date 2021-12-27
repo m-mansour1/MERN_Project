@@ -13,8 +13,11 @@ app.use(express.json())
 const uri = process.env.ATLAS_URI;
 
 mongoose.connect(uri, {
-    useUnifiedTopology:true
-})
+    useNewUrlParser: true,
+    useCreateIndex: true,
+    useUnifiedTopology: true}, (err) =>
+        console.log(console.log("Connection created!", err)));
+    
 
 const port= process.env.PORT;
 
