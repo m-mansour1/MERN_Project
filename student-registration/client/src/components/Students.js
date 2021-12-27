@@ -6,7 +6,10 @@ const Student = ()=>{
     const [standard, setStandard] = React.useState("");
     const [rollNo, setRollNo] = React.useState([]);
 
-
+    const onSubmitHandler = async ()=>{
+        const result = await axios.post("http://localhost:400/student",{name, standard, rollNo});
+        if(!result) alert("Error")
+    }
     return(
         <form>
             <h3>Student Registration portal</h3>
@@ -28,7 +31,7 @@ const Student = ()=>{
                 </label>
                 <input type="number" className="form-control" onChange={(e)=>setRollNo(e.target.value)}/>
             </div>
-            
+            <button type="submit" className="btn btn-primary" onClick={onSubmitHandler}>Save</button>
         </form>
     )
 }
