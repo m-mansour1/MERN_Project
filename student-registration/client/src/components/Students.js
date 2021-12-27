@@ -3,6 +3,7 @@ import axios from 'axios';
 
 const Students = ()=>{
     const [students, setStudents] = React.useState([]);
+    const [isDeleted, setIsDeleted] = React.useState(false);
 
     React.useEffect(()=>{
         axios.get("http://localhost:4000/students")
@@ -12,7 +13,7 @@ const Students = ()=>{
     const onDelete = async (rollNo)=>{
         const result = await axios.delete(`http://localhost:400/student/delete?rollNo=${rollNo}`);
         if(!result) alert("Error")
-        else
+        else setIsDeleted(true)
     }
 
     const renderTable = () =>{
