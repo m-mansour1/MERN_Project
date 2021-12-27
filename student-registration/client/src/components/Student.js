@@ -35,3 +35,5 @@ const Student = ()=>{
         </form>
     )
 }
+
+export default Student;
