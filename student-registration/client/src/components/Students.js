@@ -8,7 +8,7 @@ const Students = ()=>{
     React.useEffect(()=>{
         axios.get("http://localhost:4000/students")
         .then((res)=>setStudents(res.data));
-    },[])
+    },[isDeleted])
 
     const onDelete = async (rollNo)=>{
         const result = await axios.delete(`http://localhost:400/student/delete?rollNo=${rollNo}`);
